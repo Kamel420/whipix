@@ -1,0 +1,371 @@
+{
+	"variables": [],
+	"info": {
+		"name": "whipix",
+		"_postman_id": "de3253e3-29fb-ad93-ca7b-f0f8169f2e8a",
+		"description": "whipix task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"description": "this is a collection for register and login ",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"url": "http://localhost:8000/api/register/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n\t\"name\" : \"abdelrahman\",\n\t\"email\": \"abdelrahman@mail.com\",\n\t\"password\" : \"123456789\"\n}"
+						},
+						"description": "register a new user"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"url": "http://localhost:8000/oauth/token",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n\t\"grant_type\" : \"password\",\n\t\"client_id\": \"2\",\n\t\"client_secret\" : \"8X5RCwrrgqi0okVM5aNh4dw98h8DWw12ZqlGWnSc\",\n\t\"username\" : \"mohamed@mail.com\",\n\t\"password\": \"123456789\",\n\t\"scope\" : \"*\"\n}"
+						},
+						"description": "register a new user"
+					},
+					"response": []
+				},
+				{
+					"name": "user",
+					"request": {
+						"url": "http://localhost:8000/api/user/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "fetch the authorized user using generated token , saved in envirounment"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tasks",
+			"description": "this fodler includes requestes to the task",
+			"item": [
+				{
+					"name": "Task store",
+					"request": {
+						"url": "http://localhost:8000/api/tasks",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"this is the last task title \",\n\t\"body\":\"this is the last task body\",\n\t\"deadline\":\"2017/11/15\"\n}"
+						},
+						"description": "store a new task"
+					},
+					"response": []
+				},
+				{
+					"name": "Task show",
+					"request": {
+						"url": "http://localhost:8000/api/tasks/1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"public2 \",\n\t\"body\":\"this is the second task body\",\n\t\"deadline\":\"2017/11/11\"\n}"
+						},
+						"description": "show a specific task"
+					},
+					"response": []
+				},
+				{
+					"name": "Task index",
+					"request": {
+						"url": "http://localhost:8000/api/tasks/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "",
+								"value": "",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"public2 \",\n\t\"body\":\"this is the second task body\",\n\t\"deadline\":\"2017/11/11\"\n}"
+						},
+						"description": "show all public tasks"
+					},
+					"response": []
+				},
+				{
+					"name": "Task delete",
+					"request": {
+						"url": "http://localhost:8000/api/tasks/1",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "delete a specific task"
+					},
+					"response": []
+				},
+				{
+					"name": "Task Update",
+					"request": {
+						"url": "http://localhost:8000/api/tasks/3",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\":\"update testing on title of task 3\"\n\n}"
+						},
+						"description": "update an existed task"
+					},
+					"response": []
+				},
+				{
+					"name": "Task Set to Private",
+					"request": {
+						"url": "http://localhost:8000/api/tasks/1/private",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"visibility\":\"Private\"\n\n}"
+						},
+						"description": "Set a Task To Private"
+					},
+					"response": []
+				},
+				{
+					"name": "Task Set DeadLine",
+					"request": {
+						"url": "http://localhost:8000/api/tasks/3/deadline",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"deadline\":\"2010-10-10\"\n\n}"
+						},
+						"description": "Set a New DeadLine for an exists task"
+					},
+					"response": []
+				},
+				{
+					"name": "toggle task status",
+					"request": {
+						"url": "http://localhost:8000/api/tasks/3/toggle",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "toggle the status of the task"
+					},
+					"response": []
+				},
+				{
+					"name": "search for user",
+					"request": {
+						"url": "http://localhost:8000/api/search",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"kamel@mail.com\"\n}"
+						},
+						"description": "search for a user by \"email\" or \"username\""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
