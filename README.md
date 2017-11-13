@@ -21,8 +21,8 @@ this projects aims to enable the user to register and login to perform many acti
 This REST-API built in laravel V 5.5 so make sure your php CLI (command line interface) version is matches version requirements . the project is also using passport-password grant for authentication.
 
 - Install Laravel and handle .env file
-- Run Migrations
 - Run Passport:install
+- Run Migrations
 - register a new user 
 - there isn't a login page , so you have to go to ../oauth/token with the grant_type, client_ID, client_secrets, username, password And scope to generate a token for the registered user and setup a postman environment to be able to perform other actions with this registered user
 - or you can import my database-> whipix.sql -> into your migrated database and use my postman collection that is located at the root folder (collection V2) and setup postman environment which is located at the root folder too .
@@ -59,6 +59,6 @@ The root folder of the task has
 
 
 
-##Conculation
+## Conculation
 
 - This task was a really big challenge despite it's not 100% completed but i am working on improving my skills and can push another update soon to fix the login issue maybe i will gonna use JWT for more stability  .
